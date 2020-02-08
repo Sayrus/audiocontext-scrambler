@@ -1,0 +1,17 @@
+{
+
+  "manifest_version": 2,
+  "name": "AudioContext Scrambler",
+  "version": "1.0",
+
+  "description": "Scramble channel data to avoid AudioContext fingerprinting",
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "run_at": "document_start",
+      "js": ["scrambler.js"]
+    }
+  ]
+
+}
