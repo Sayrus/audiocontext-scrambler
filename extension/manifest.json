@@ -6,6 +6,12 @@
 
   "description": "Scramble channel data to avoid AudioContext fingerprinting",
 
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-48@2x.png",
+    "512": "icons/icon-512.png"
+  },
+
   "content_scripts": [
     {
       "matches": ["*://*/*"],
