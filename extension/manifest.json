@@ -1,8 +1,12 @@
 {
-
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{1af7e84d-e5d3-45fd-b526-b46fe737647d}"
+    }
+  },
   "manifest_version": 2,
   "name": "AudioContext Scrambler",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Scramble channel data to avoid AudioContext fingerprinting",
 
