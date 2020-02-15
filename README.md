@@ -9,8 +9,8 @@ Protects you against AudioContext fingerprinting by adding random noise.
 
 ### From the store
 
-As any addons, navigate to its [store page](https://example.com) and click
-`Install`.
+As any addons, navigate to its [store page](https://addons.mozilla.org/en-US/firefox/addon/audiocontext-scrambler/)
+and click `Install`.
 
 ### From releases
 
@@ -47,3 +47,7 @@ This extension currently only support Firefox and Firefox for Android.
 - Notify you when a page is trying to fingerprint you
 - Support Chromium
 - Configurable noise amplitude
+
+## Articles
+
+- [sayr.us: AudioContext Fingerprinting - An explanation of why this add-on exists](https://sayr.us/privacy/audiocontext-fingerprinting/)
