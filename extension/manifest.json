@@ -6,7 +6,7 @@
   },
   "manifest_version": 2,
   "name": "AudioContext Scrambler",
-  "version": "1.1",
+  "version": "1.2",
 
   "description": "Scramble channel data to avoid AudioContext fingerprinting",
 
