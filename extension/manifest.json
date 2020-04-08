@@ -16,12 +16,29 @@
     "512": "icons/icon-512.png"
   },
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_popup": "options.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-48@2x.png",
+      "512": "icons/icon-512.png"
+    }
+  },
+
   "content_scripts": [
     {
       "matches": ["*://*/*"],
       "run_at": "document_start",
       "js": ["scrambler.js"]
     }
-  ]
-
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": ["storage", "notifications"]
 }

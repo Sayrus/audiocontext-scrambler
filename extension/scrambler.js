@@ -4,6 +4,7 @@ function createCustomChannelData(target) {
   let getChannelData = function () {
     const originalResult = original.apply(this, arguments);
     if (buffer !== originalResult) {
+      browser.runtime.sendMessage({content: window.top.location.href});
       buffer = originalResult;
       for (var i = 0; i < originalResult.length; i += 100) {
         let index = Math.floor(Math.random() * i);
@@ -19,6 +20,7 @@ function createCustomAnalyserNode(target) {
   const original = target.prototype.getFloatFrequencyData;
   let getFloatFrequencyData = function () {
     const originalResult = original.apply(this, arguments);
+    browser.runtime.sendMessage({content: window.top.location.href});
     for (var i = 0; i < arguments[0].length; i += 100) {
       let index = Math.floor(Math.random() * i);
       arguments[0][index] = arguments[0][index] + Math.random() * 0.1;

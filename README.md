@@ -44,8 +44,8 @@ This extension currently only support Firefox and Firefox for Android.
 
 ## What's next?
 
-- Notify you when a page is trying to fingerprint you
-- Support Chromium
+- Support Chromium (Requires injecting JavaScript into the page instead of using
+  `exportFunction`.)
 - Configurable noise amplitude
 
 ## Articles
