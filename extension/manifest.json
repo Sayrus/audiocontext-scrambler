@@ -29,16 +29,8 @@
       "512": "icons/icon-512.png"
     }
   },
-
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "run_at": "document_start",
-      "js": ["scrambler.js"]
-    }
-  ],
   "options_ui": {
     "page": "options.html"
   },
-  "permissions": ["storage", "notifications"]
+  "permissions": ["storage", "notifications", "*://*/*", "webRequest"]
 }
