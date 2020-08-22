@@ -1,5 +1,6 @@
 defaultValues = {
-  enableNotification: false
+  enableNotification: false,
+  allowlist: ""
 }
 
 function get(key) {
