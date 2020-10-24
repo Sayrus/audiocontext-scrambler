@@ -47,6 +47,7 @@ This extension currently only support Firefox and Firefox for Android.
 - Support Chromium (Requires injecting JavaScript into the page instead of using
   `exportFunction`.)
 - Configurable noise amplitude
+- Use the allowlist to create a `RequestFilter` that filters out allowed pages
 
 ## Articles
 
