@@ -29,7 +29,8 @@ function injectContentScript(details) {
   }
 
   let injectDetails = {
-    file: "/scrambler.js"
+    file: "/scrambler.js",
+    frameId: details.frameId
   };
 
   browser.tabs.executeScript(details.tabId, injectDetails);
