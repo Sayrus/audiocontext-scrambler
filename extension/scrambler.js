@@ -1,19 +1,54 @@
+const cache = new Map()
+function isScrambled(object, channelNumber) {
+  if (!cache.has(object)) {
+    cache.set(object, new Map());
+  }
+
+  objectMap = cache.get(object);
+  return objectMap.has(channelNumber);
+}
+
+function markScrambled(object, channelNumber) {
+  if (!cache.has(object)) {
+    cache.set(object, new Map());
+  }
+
+  objectMap = cache.get(object);
+  return objectMap.set(channelNumber, true);
+}
+
 function createCustomChannelData(target) {
-  const original = target.prototype.getChannelData;
-  let buffer = null;
+  const originalGetChannelData = target.prototype.getChannelData;
+  const originalCopyFromChannel = target.prototype.copyFromChannel;
+
   let getChannelData = function () {
-    const originalResult = original.apply(this, arguments);
-    if (buffer !== originalResult) {
+    const originalResult = originalGetChannelData.apply(this, arguments);
+    const channelNumber = arguments[0];
+    if (!isScrambled(this, channelNumber)) {
       browser.runtime.sendMessage({content: window.top.location.href});
-      buffer = originalResult;
       for (var i = 0; i < originalResult.length; i += 100) {
         let index = Math.floor(Math.random() * i);
         originalResult[index] = originalResult[index] + Math.random() * 0.0000001;
       }
+      markScrambled(this, channelNumber);
     }
+
     return originalResult;
   };
+
+  let copyFromChannel = function () {
+    if (arguments.length < 2) {
+      throw new TypeError('AudioBuffer.copyFromChannel: At least 2 arguments required, but only ' + arguments.length + ' passed');
+    }
+    if (!isScrambled(this, arguments[1])) {
+      /* Force scrambler to run */
+      getChannelData.apply(this, [arguments[1]])
+    }
+    return originalCopyFromChannel.apply(this, arguments);
+  }
+
   exportFunction(getChannelData, target.prototype, {defineAs:'getChannelData'});
+  exportFunction(copyFromChannel, target.prototype, {defineAs:'copyFromChannel'});
 }
 
 function createCustomAnalyserNode(target) {
